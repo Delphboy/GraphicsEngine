@@ -1,0 +1,20 @@
+﻿TO DO
+================
+	()Remove seperate X and Y values so the variables within the "SPRITE" data struct are used
+	()Add double buffering to prevent flickering
+	()Make object oriented
+	()Tidy up code and ensure comments are still accutrate
+	()===========
+		WHEN ALL THE ABOVE ARE DONE, PUSH TO GITHUB
+	  ===========
+	
+	()Add multithreading
+	()NPC AI
+	()Settings file?
+	()Add a console fo developers for when "`" Key is pressed?
+
+	()MAP LOADING
+		()Collision
+		()Scrolling?
+		()Load from XML
+		()Tile based
