@@ -102,10 +102,10 @@ namespace GraphicsEngine
         int width = 800;
         int height = 600;
 
-        int X = 0;
-        int Y = 0;
-        int npc1X = 16;
-        int npc1Y = 16;
+        //int X = 0;
+        //int Y = 0;
+        //int npc1X = 16;
+        //int npc1Y = 16;
 
         Image backGound = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\bg.bmp");
         Image pauseScreen = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\pause.bmp");
@@ -186,20 +186,20 @@ namespace GraphicsEngine
                 //Console.WriteLine(player.spriteX.ToString() + " : " + player.spriteY.ToString());
                 switch (e.KeyCode) { 
                     case Keys.W:
-                        moveSprite(player, dir.up, X, Y - player.spriteHeight);
-                         Y -= player.spriteHeight;
+                        moveSprite(player, dir.up, player.spriteX, player.spriteY - player.spriteHeight);
+                        player.spriteY -= player.spriteHeight;
                         break;
                     case Keys.S:
-                        moveSprite(player, dir.down, X, Y + player.spriteHeight);
-                        Y += player.spriteHeight;
+                        moveSprite(player, dir.down, player.spriteX, player.spriteY + player.spriteHeight);
+                        player.spriteY += player.spriteHeight;
                         break;
                     case Keys.A:
-                        moveSprite(player, dir.left, X - player.spriteWidth, Y);
-                        X -= player.spriteWidth;
+                        moveSprite(player, dir.left, player.spriteX - player.spriteWidth, player.spriteY);
+                        player.spriteX -= player.spriteWidth;
                         break;
                     case Keys.D:
-                        moveSprite(player, dir.right, X + player.spriteWidth, Y);
-                        X += player.spriteWidth;
+                        moveSprite(player, dir.right, player.spriteX + player.spriteWidth, player.spriteY);
+                        player.spriteX += player.spriteWidth;
                         break;
                 }
 
@@ -297,20 +297,20 @@ namespace GraphicsEngine
                     int rndInt = rnd.Next(0, 3);
                     switch (rndInt) { 
                         case 0:
-                            npc1Y -= NPCsprite.spriteHeight;
-                            moveSprite(NPC1, dir.up, npc1X, npc1Y);
+                            NPCsprite.spriteY -= NPCsprite.spriteHeight;
+                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                         case 1:
-                            npc1Y += NPCsprite.spriteHeight;
-                            moveSprite(NPC1, dir.up, npc1X, npc1Y);
+                            NPCsprite.spriteY += NPCsprite.spriteHeight;
+                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                         case 2:
-                            npc1X -= NPCsprite.spriteWidth;
-                            moveSprite(NPC1, dir.up, npc1X, npc1Y);
+                            NPCsprite.spriteX -= NPCsprite.spriteWidth;
+                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                         case 3:
-                            npc1X += NPCsprite.spriteWidth;
-                            moveSprite(NPC1, dir.up, npc1X, npc1Y);
+                            NPCsprite.spriteX += NPCsprite.spriteWidth;
+                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                     }
                     break;
