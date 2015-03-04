@@ -2,12 +2,7 @@
 ================
 	()Remove seperate X and Y values so the variables within the "SPRITE" data struct are used
 	()Add double buffering to prevent flickering
-	()Make object oriented
-	()Tidy up code and ensure comments are still accutrate
-	()===========
-		WHEN ALL THE ABOVE ARE DONE, PUSH TO GITHUB
-	  ===========
-	
+	()Make object oriented	
 	()Add multithreading
 	()NPC AI
 	()Settings file?

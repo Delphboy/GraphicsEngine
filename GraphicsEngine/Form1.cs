@@ -46,10 +46,15 @@ using System.Windows.Forms;
 
 namespace GraphicsEngine
 {
-    public enum dir { none, up, down, left, right};
-    public enum ToRender { background, pause, generic, player, NPC1, NPC2, NPC3 };
-    public enum NPCType { follower, wanderer };
+    public enum dir { none, up, down, left, right};                                     //Dictates the direction the object is facing
+    public enum ToRender { background, pause, generic, player, NPC1, NPC2, NPC3 };      //Dictates the object being rendered
+    public enum NPCType { follower, wanderer };                                         //Dictates AI behaviour
 
+    /* Sprite STRUCT
+     * =====================
+     * Holds the data needed for the sprite to be rendered and moved around.
+     */
+    
     public struct sprite {
         public ToRender type;
         public string[] imageArray;
@@ -167,7 +172,8 @@ namespace GraphicsEngine
         //Timer event
         private void timerFire(object sender, EventArgs e)
         {
-            //NPC(NPC1, NPCType.wanderer, ToRender.NPC1);
+            //Uncomment line below for error
+            NPC(NPC1, NPCType.wanderer, ToRender.NPC1);
         }
 
         //Controls - Key handling
