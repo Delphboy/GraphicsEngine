@@ -308,15 +308,18 @@ namespace GraphicsEngine
                             break;
                         case 1:
                             NPCsprite.spriteY += NPCsprite.spriteHeight;
-                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
+                            moveSprite(NPC1, dir.down, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                         case 2:
                             NPCsprite.spriteX -= NPCsprite.spriteWidth;
-                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
+                            moveSprite(NPC1, dir.left, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                         case 3:
                             NPCsprite.spriteX += NPCsprite.spriteWidth;
-                            moveSprite(NPC1, dir.up, NPCsprite.spriteX, NPCsprite.spriteY);
+                            moveSprite(NPC1, dir.right, NPCsprite.spriteX, NPCsprite.spriteY);
+                            break;
+                        default:
+                            moveSprite(NPC1, dir.none, NPCsprite.spriteX, NPCsprite.spriteY);
                             break;
                     }
                     break;
