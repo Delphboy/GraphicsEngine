@@ -121,6 +121,7 @@ namespace GraphicsEngine
         string[] NPC2ImageFiles = new string[] { "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", };
         string[] NPC3ImageFiles = new string[] { "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", };
 
+        //Ensure these are disposed in the freeMemory() void at the bottom of the programme
         sprite player;
         sprite NPC1;
 
@@ -154,7 +155,6 @@ namespace GraphicsEngine
         //form load sub
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Seperate X and Y ", "Error");
             loadGameSettings();
         }
 
@@ -173,14 +173,13 @@ namespace GraphicsEngine
         private void timerFire(object sender, EventArgs e)
         {
             //Uncomment line below for error
-            NPC(NPC1, NPCType.wanderer, ToRender.NPC1);
+            //NPC(NPC1, NPCType.wanderer, ToRender.NPC1);
         }
 
         //Controls - Key handling
         private void controls(object sender, KeyEventArgs e)
         {
-            /*
-             * UP
+            /* UP
              * DOWN
              * LEFT
              * RIGHT
@@ -189,7 +188,6 @@ namespace GraphicsEngine
              */
 
             if (gameTimer.Enabled == true)
-                //Console.WriteLine(player.spriteX.ToString() + " : " + player.spriteY.ToString());
                 switch (e.KeyCode) { 
                     case Keys.W:
                         moveSprite(player, dir.up, player.spriteX, player.spriteY - player.spriteHeight);
@@ -228,7 +226,7 @@ namespace GraphicsEngine
 
             if (e.KeyCode == Keys.Space)
             {
-                //DO STUFF
+                //User code here
             }
             
         }
