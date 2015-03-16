@@ -86,14 +86,56 @@ namespace GraphicsEngine
             imageArray = imgArray;
         }
     }
+    /*TODO: Add a function that turns a CSV map file into rendered images
+     * http://stackoverflow.com/questions/465172/merging-two-images-in-c-net
+     */
 
     //Data structure to hold the data for the map to be rendered on the screen
     public struct map {
-        public string mapString;
+        public string mapName;
         public int tileWidth;
         public int tileHeight;
         public Image mapImage;
+        public string mapCSVFile;
         public int[,] collisionArray;
+
+        /* CSV FILE STRUCT
+         * ===============
+         * Contains integers to represent a predesigned tile
+         * 1 = Grass
+         * 2 = Wall
+         * 3 = Path
+         * 4 = Flowers
+         * 5 = Wooden floor
+         * 
+         * 5x5 map will read like
+         *      2, 3, 2, 2, 2
+         *      2, 3, 3, 1, 2
+         *      2, 4, 3, 4, 2
+         *      2, 4, 3, 4, 2
+         *      2, 2, 3, 2, 2
+         */
+
+        //using image for map
+        public map(string name, int width, int height, Image image, int[,]colArray) {
+            mapName = name;
+            tileWidth = width;
+            tileHeight = height;
+            mapImage = image;
+            mapCSVFile = null;
+            collisionArray = colArray;
+        }
+
+        //using CSV file for map
+        public map(string name, int width, int height, string mapFile, int[,] colArray)
+        {
+            mapName = name;
+            tileWidth = width;
+            tileHeight = height;
+            mapImage = null;
+            mapCSVFile = mapFile;
+            collisionArray = colArray;
+        }
     }
 
     public partial class Form1 : Form
