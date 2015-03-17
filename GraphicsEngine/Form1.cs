@@ -49,6 +49,7 @@ namespace GraphicsEngine
     public enum dir { none, up, down, left, right};                                     //Dictates the direction the object is facing
     public enum ToRender { background, pause, generic, player, NPC1, NPC2, NPC3 };      //Dictates the object being rendered
     public enum NPCType { follower, wanderer };                                         //Dictates AI behaviour
+    public enum overlay { none, one, two}                                               //Dictates the overlay in use
 
     /* Sprite STRUCT
      * =====================
@@ -64,7 +65,11 @@ namespace GraphicsEngine
         public int spriteWidth;
         public int spriteHeight;
 
-        public sprite(ToRender renderType, Image sImg, int X, int Y, int width, int height)
+        //character specifics
+        public string spriteName;
+        public int spriteHealth;
+
+        public sprite(ToRender renderType, Image sImg, int X, int Y, int width, int height, string name, int health)
         {
             type = ToRender.generic;
             spriteImage = sImg;
@@ -73,9 +78,11 @@ namespace GraphicsEngine
             spriteWidth = width;
             spriteHeight = height;
             imageArray = null;
+            spriteName = name;
+            spriteHealth = health;
         }
 
-        public sprite(ToRender renderType, int X, int Y, int width, int height, string[] imgArray)
+        public sprite(ToRender renderType, int X, int Y, int width, int height, string[] imgArray, string name, int health)
         {
             type = renderType;
             spriteImage = null;
@@ -84,6 +91,8 @@ namespace GraphicsEngine
             spriteWidth = width;
             spriteHeight = height;
             imageArray = imgArray;
+            spriteName = name;
+            spriteHealth = health;
         }
     }
     /*TODO: Add a function that turns a CSV map file into rendered images
@@ -183,6 +192,8 @@ namespace GraphicsEngine
             player.spriteY = 16;
             player.spriteWidth = 16;
             player.spriteHeight = 16;
+            player.spriteName = "Delphboy";
+            player.spriteHealth = 100;
 
             //SET UP NPC1
             NPC1.type = ToRender.NPC1;
@@ -192,6 +203,8 @@ namespace GraphicsEngine
             NPC1.spriteY = 16;
             NPC1.spriteWidth = 16;
             NPC1.spriteHeight = 16;
+            NPC1.spriteName = "Delphboy";
+            NPC1.spriteHealth = 100;
         }
 
         //form load sub
@@ -316,6 +329,7 @@ namespace GraphicsEngine
         {
             try
             {
+                overlayRender(overlay.two);
                 visual.DrawImage(img, size);
             }
             catch (Exception ex) {
@@ -364,6 +378,34 @@ namespace GraphicsEngine
                     }
                     break;
             }
+        }
+
+        /*  -----OVERLAYS-----  */
+        //RENDER OVERLAY
+        public void overlayRender(overlay overlay) {
+            switch (overlay) { 
+                case overlay.one:
+                    overlayOne();
+                    break;
+                case overlay.two:
+                    overlayTwo();
+                    break;
+                default:
+                    //no overlay is selected so don't do anything
+                    break;
+            }
+        }
+
+        //overlay 1 (DOOM STYLE)
+        public void overlayOne() { 
+            
+        }
+
+        //overlay 2(personal)
+        public void overlayTwo()
+        {
+            //visual.DrawString(player.spriteName, new Font("Arial", 24), Brushes.CornflowerBlue, new Rectangle(10, 10, 200, 50));
+            visual.DrawString("Health: " + Convert.ToString(player.spriteHealth), new Font("Arial", 24), Brushes.CornflowerBlue, new Rectangle(10/*400*/, 10, 300, 50)); 
         }
 
         //Free memroy
