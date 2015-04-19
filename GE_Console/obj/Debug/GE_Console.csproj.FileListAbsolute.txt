@@ -1,0 +1,6 @@
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\obj\Debug\GE_Console.csprojResolveAssemblyReference.cache
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\bin\Debug\GE_Console.exe.config
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\bin\Debug\GE_Console.exe
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\bin\Debug\GE_Console.pdb
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\obj\Debug\GE_Console.exe
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Console\obj\Debug\GE_Console.pdb

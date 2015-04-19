@@ -1,6 +1,8 @@
 ﻿/*MADE BY DELPHBOY GNU GPL LICENSE*/
 /*HAVE FUN :)*/
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 //PROGRAMME STRUCTURE
 /* DATA STRUCTURES
  * ===============
@@ -29,8 +31,10 @@
  * load game settings
  * Timer tick event
  * Controls
+ * Map Loading
  * Render
  * AI
+ * Overlay Rendering
  * Memory Disposal
 */
 
@@ -43,6 +47,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using GE_Core;
+using GE_Console;
 
 namespace GraphicsEngine
 {
@@ -95,60 +102,12 @@ namespace GraphicsEngine
             spriteHealth = health;
         }
     }
-    /*TODO: Add a function that turns a CSV map file into rendered images
-     * http://stackoverflow.com/questions/465172/merging-two-images-in-c-net
-     */
-
-    //Data structure to hold the data for the map to be rendered on the screen
-    public struct map {
-        public string mapName;
-        public int tileWidth;
-        public int tileHeight;
-        public Image mapImage;
-        public string mapCSVFile;
-        public int[,] collisionArray;
-
-        /* CSV FILE STRUCT
-         * ===============
-         * Contains integers to represent a predesigned tile
-         * 1 = Grass
-         * 2 = Wall
-         * 3 = Path
-         * 4 = Flowers
-         * 5 = Wooden floor
-         * 
-         * 5x5 map will read like
-         *      2, 3, 2, 2, 2
-         *      2, 3, 3, 1, 2
-         *      2, 4, 3, 4, 2
-         *      2, 4, 3, 4, 2
-         *      2, 2, 3, 2, 2
-         */
-
-        //using image for map
-        public map(string name, int width, int height, Image image, int[,]colArray) {
-            mapName = name;
-            tileWidth = width;
-            tileHeight = height;
-            mapImage = image;
-            mapCSVFile = null;
-            collisionArray = colArray;
-        }
-
-        //using CSV file for map
-        public map(string name, int width, int height, string mapFile, int[,] colArray)
-        {
-            mapName = name;
-            tileWidth = width;
-            tileHeight = height;
-            mapImage = null;
-            mapCSVFile = mapFile;
-            collisionArray = colArray;
-        }
-    }
+    
 
     public partial class Form1 : Form
     {
+        GE_Console.CMD_Console cmd;
+
         Graphics visual;
 
         string gameName = "testEngine1";
@@ -165,6 +124,9 @@ namespace GraphicsEngine
 
         Image backGound = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\bg.bmp");
         Image pauseScreen = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\pause.bmp");
+        Image overlayOneBG = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\UI.bmp");    //800x250 bmp
+
+        overlay selectedOverlay = overlay.one;
 
         string spriteLocation = "C:\\Users\\Henry Senior\\Desktop\\";
         string[] playerImageFiles = new string[] { "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", };
@@ -260,6 +222,11 @@ namespace GraphicsEngine
                         moveSprite(player, dir.right, player.spriteX + player.spriteWidth, player.spriteY);
                         player.spriteX += player.spriteWidth;
                         break;
+                    case Keys.PageUp:
+                        MessageBox.Show("open");
+                        cmd = new GE_Console.CMD_Console();
+                        
+                        break;
                 }
 
             if (e.KeyCode == Keys.Escape){
@@ -281,9 +248,33 @@ namespace GraphicsEngine
 
             if (e.KeyCode == Keys.Space)
             {
-                //User code here
+                //MessageBox.Show("test key");
+                //"C:\\Users\\Henry Senior\\Desktop\\testMap.csv"
+                GE_Core.mapLoading.map mapClass = new GE_Core.mapLoading.map();
+                mapClass.readMap("C:\\Users\\Henry Senior\\Desktop\\testMap.csv");
             }
             
+        }
+
+        //Load Map
+        public void mapReader(string mapFile) {
+            string mapData = "";             //Complete map file
+            string headerData = "";          //Map size in tiles
+            string mainData = "";            //Map data
+            string footerData = "";          //NPC data
+
+            char[] delimiterChars = { '|', ',', '.', ':', '\t' };
+            string[] mapDataArray = mapData.Split(delimiterChars);
+
+            mapData = System.IO.File.ReadAllText(mapFile);
+
+            //headerData is first few lines
+            
+
+            //mainData is the map details
+
+
+            //footerData gives NPC data
         }
 
         //Controls - Moving NPC
@@ -329,8 +320,8 @@ namespace GraphicsEngine
         {
             try
             {
-                overlayRender(overlay.two);
                 visual.DrawImage(img, size);
+                overlayRender(selectedOverlay); //render UI overlay over the image being rendered
             }
             catch (Exception ex) {
                 MessageBox.Show("The render function has tried to render an image and failed" + Environment.NewLine + size.X.ToString() + " : " + size.Y.ToString() + Environment.NewLine + ex.Message, "Error");
@@ -381,6 +372,8 @@ namespace GraphicsEngine
         }
 
         /*  -----OVERLAYS-----  */
+        /*Rendered using the visual object rather than through the "render" function to prevent prevent the stack from dying*/
+
         //RENDER OVERLAY
         public void overlayRender(overlay overlay) {
             switch (overlay) { 
@@ -398,13 +391,15 @@ namespace GraphicsEngine
 
         //overlay 1 (DOOM STYLE)
         public void overlayOne() { 
-            
+            visual.DrawImage(overlayOneBG, new Rectangle(-10, 450, 800, 250));
+            visual.DrawImage(Image.FromFile(spriteLocation + player.imageArray[0]), new Rectangle(375, 475, 50, 50));
+            visual.DrawString(player.spriteName, new Font("Tahoma", 24), Brushes.White, new PointF(10, 460));
+            visual.DrawString("Health: " + player.spriteHealth.ToString(), new Font("Tahoma", 24), Brushes.White, new PointF(600, 460));
         }
 
-        //overlay 2(personal)
+        //overlay 2(personal style)
         public void overlayTwo()
         {
-            //visual.DrawString(player.spriteName, new Font("Arial", 24), Brushes.CornflowerBlue, new Rectangle(10, 10, 200, 50));
             visual.DrawString("Health: " + Convert.ToString(player.spriteHealth), new Font("Arial", 24), Brushes.CornflowerBlue, new Rectangle(10/*400*/, 10, 300, 50)); 
         }
 

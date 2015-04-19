@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicsEngine", "GraphicsEngine\GraphicsEngine.csproj", "{47455E59-A017-4481-A1DC-32B17754C758}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GE_Core", "GE_Core\GE_Core.csproj", "{8D6C9A24-981A-4590-B55A-AE52AFF45C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GE_Console", "GE_Console\GE_Console.csproj", "{7DBD39F8-2F06-4DBC-B93F-6B16277D35AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{47455E59-A017-4481-A1DC-32B17754C758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47455E59-A017-4481-A1DC-32B17754C758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47455E59-A017-4481-A1DC-32B17754C758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6C9A24-981A-4590-B55A-AE52AFF45C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6C9A24-981A-4590-B55A-AE52AFF45C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6C9A24-981A-4590-B55A-AE52AFF45C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6C9A24-981A-4590-B55A-AE52AFF45C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBD39F8-2F06-4DBC-B93F-6B16277D35AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBD39F8-2F06-4DBC-B93F-6B16277D35AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBD39F8-2F06-4DBC-B93F-6B16277D35AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBD39F8-2F06-4DBC-B93F-6B16277D35AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

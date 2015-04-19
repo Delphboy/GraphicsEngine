@@ -6,9 +6,18 @@
 	()Add multithreading
 	()NPC AI
 	()Settings file?
-	()Add a console fo developers for when "`" Key is pressed?
+
+	()Make console display when "PAGE_UP" key is pressed
+
+	(x)Add UI overlay
+	()Keep graphics in the solution explorer to no external files are needed
+	()Boundaries
 
 	()MAP LOADING
-		()Collision
-		()Load from CSV
-		()Tile based
+		()CSV data
+		()Meta data
+			()Tile size
+			()Map width
+			()Map height
+			()collision array
+			()NPC data

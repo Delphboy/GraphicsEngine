@@ -1,0 +1,7 @@
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\bin\Debug\GE_Core.dll
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\bin\Debug\GE_Core.pdb
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\obj\Debug\GE_Core.csprojResolveAssemblyReference.cache
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\obj\Debug\GE_Core.dll
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\obj\Debug\GE_Core.pdb
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\bin\Debug\GE_Console.exe
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GE_Core\bin\Debug\GE_Console.pdb

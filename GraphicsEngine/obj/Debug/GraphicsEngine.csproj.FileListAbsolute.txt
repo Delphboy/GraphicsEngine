@@ -7,3 +7,7 @@ C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\Graph
 C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\obj\Debug\GraphicsEngine.csproj.GenerateResource.Cache
 C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\obj\Debug\GraphicsEngine.exe
 C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\obj\Debug\GraphicsEngine.pdb
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\bin\Debug\GE_Console.exe
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\bin\Debug\GE_Core.dll
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\bin\Debug\GE_Console.pdb
+C:\Users\Henry Senior\documents\visual studio 2012\Projects\GraphicsEngine\GraphicsEngine\bin\Debug\GE_Core.pdb
