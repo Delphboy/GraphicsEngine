@@ -20,4 +20,4 @@ Still to do:
 
 2. ~~"Cheat" console~~
 
-3. Move from procedural code to a more class based object orientation code
+3. Move from procedural code to a more class based object orientation code. Especially within the GE_Core code base.
