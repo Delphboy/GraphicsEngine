@@ -21,3 +21,8 @@
 			()Map height
 			()collision array
 			()NPC data
+
+TO FIX
+================
+	()Make console display when "PAGE_UP" key is pressed
+	()NPC Rendering

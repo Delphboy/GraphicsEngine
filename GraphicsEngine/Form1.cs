@@ -403,6 +403,8 @@ namespace GraphicsEngine
             visual.DrawString("Health: " + Convert.ToString(player.spriteHealth), new Font("Arial", 24), Brushes.CornflowerBlue, new Rectangle(10/*400*/, 10, 300, 50)); 
         }
 
+        /*  -----END UI CODE-----  */
+
         //Free memroy
         private void freeMemory(object sender, FormClosedEventArgs e)
         {
