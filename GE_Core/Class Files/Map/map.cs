@@ -58,13 +58,13 @@ namespace GE_Core.mapLoading
                 string[] Line = sr.ReadLine().Split(',');
                 lines.Add(Line);
                 Row++;
-                Console.WriteLine(Row);
+                Console.WriteLine(Row);     //print the array index currently being saved
             }
 
             var data = lines.ToArray();
 
             for (int i = 0; i < Row; i++) {
-                Console.WriteLine(lines[i]);
+                Console.WriteLine(data[i]);
             }
 
         }

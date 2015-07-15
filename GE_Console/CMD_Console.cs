@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace GE_Console
 {
     public class CMD_Console
@@ -23,9 +24,17 @@ namespace GE_Console
 
         static void checkCMD(string cmd) {
             cmd = cmd.ToUpper();
+            
 
             switch (cmd)
             {
+                case "set-X":
+
+                    break;
+                case "set-Y":
+
+                    break;
+
                 case "HELP":
                     listCommands();
                     break;

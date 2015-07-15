@@ -40,10 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class Files\Map\map.cs" />
+    <Compile Include="Class Files\NPCs\ai.cs" />
+    <Compile Include="Class Files\NPCs\NPCbase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Class Files\NPCs\" />
     <Folder Include="Class Files\Player\" />
   </ItemGroup>
   <ItemGroup>

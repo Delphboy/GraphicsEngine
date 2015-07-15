@@ -48,11 +48,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Runtime.InteropServices;
+
 using GE_Core;
 using GE_Console;
 
 namespace GraphicsEngine
 {
+
+    
     public enum dir { none, up, down, left, right};                                     //Dictates the direction the object is facing
     public enum ToRender { background, pause, generic, player, NPC1, NPC2, NPC3 };      //Dictates the object being rendered
     public enum NPCType { follower, wanderer };                                         //Dictates AI behaviour
@@ -107,6 +111,7 @@ namespace GraphicsEngine
     public partial class Form1 : Form
     {
         GE_Console.CMD_Console cmd;
+        GE_Core.NPCs.ai NPCClass;
 
         Graphics visual;
 
@@ -122,13 +127,13 @@ namespace GraphicsEngine
         //int npc1X = 16;
         //int npc1Y = 16;
 
-        Image backGound = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\bg.bmp");
-        Image pauseScreen = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\pause.bmp");
-        Image overlayOneBG = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\UI.bmp");    //800x250 bmp
+        Image backGound = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\Engine Test Graphics\\bg.bmp");
+        Image pauseScreen = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\Engine Test Graphics\\pause.bmp");
+        Image overlayOneBG = Image.FromFile("C:\\Users\\Henry Senior\\Desktop\\Engine Test Graphics\\UI.bmp");    //800x250 bmp
 
         overlay selectedOverlay = overlay.one;
 
-        string spriteLocation = "C:\\Users\\Henry Senior\\Desktop\\";
+        string spriteLocation = "C:\\Users\\Henry Senior\\Desktop\\Engine Test Graphics\\";
         string[] playerImageFiles = new string[] { "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", };
         string[] NPC1ImageFiles = new string[] { "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", "testNPC.bmp", };
         string[] NPC2ImageFiles = new string[] { "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", "testSprite.bmp", };
@@ -138,6 +143,8 @@ namespace GraphicsEngine
         sprite player;
         sprite NPC1;
 
+
+
         //Initialise Form loading
         public Form1()
         {
@@ -145,6 +152,11 @@ namespace GraphicsEngine
             gameTimer.Start();
             gameTimer.Enabled = true;
             visual = CreateGraphics();
+
+            //INITILISE CORE
+            NPCClass = new GE_Core.NPCs.ai();
+            
+
 
             //SET UP PLAYER
             player.type = ToRender.player;
@@ -223,9 +235,8 @@ namespace GraphicsEngine
                         player.spriteX += player.spriteWidth;
                         break;
                     case Keys.PageUp:
-                        MessageBox.Show("open");
+                        MessageBox.Show("Open Console", "Console");
                         cmd = new GE_Console.CMD_Console();
-                        
                         break;
                 }
 
